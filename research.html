@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tendd Research - Product Research Sprint</title>
+  <style>
+    :root {
+      --bg: #f8f7f4;
+      --surface: #ffffff;
+      --border: #e8e4dc;
+      --border-light: #f0ede6;
+      --text: #2a2724;
+      --text-secondary: #6b6560;
+      --text-muted: #9b958e;
+      --accent: #5c7a6e;
+      --accent-light: #eef4f1;
+      --accent-mid: #d0e4dc;
+      --yellow-light: #fdf8ed;
+      --yellow-mid: #f5e9c4;
+      --red-light: #fdf2f0;
+      --red-mid: #f2cfc8;
+      --score-5: #2e7d5e;
+      --score-4: #5c9e7a;
+      --score-3: #b8a030;
+      --score-2: #c4642a;
+      --score-1: #b83020;
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      --mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+      --radius: 8px;
+      --radius-sm: 4px;
+      --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(248, 247, 244, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      height: 56px;
+      display: flex;
+      align-items: center;
+      padding: 0 32px;
+      gap: 8px;
+    }
+
+    .nav-brand {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      margin-right: 16px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .nav-links::-webkit-scrollbar { display: none; }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 13px;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: var(--border);
+    }
+
+    /* Main layout */
+    main {
+      padding-top: 56px;
+      max-width: 960px;
+      margin: 0 auto;
+      padding-left: 24px;
+      padding-right: 24px;
+      padding-bottom: 80px;
+    }
+
+    /* Sections */
+    .section {
+      padding: 64px 0 0;
+    }
+
+    .section-header {
+      margin-bottom: 32px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--text);
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    p { margin-bottom: 12px; color: var(--text); }
+    p:last-child { margin-bottom: 0; }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Hero section */
+    .hero {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 100px;
+      background: var(--accent-light);
+      color: var(--accent);
+      border: 1px solid var(--accent-mid);
+    }
+
+    .hero-tagline {
+      font-size: 18px;
+      color: var(--text-secondary);
+      margin-top: 12px;
+      max-width: 640px;
+      line-height: 1.5;
+    }
+
+    .key-conclusions {
+      background: var(--accent-light);
+      border: 1px solid var(--accent-mid);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-top: 32px;
+    }
+
+    .key-conclusions h3 {
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .key-conclusions ol {
+      padding-left: 20px;
+    }
+
+    .key-conclusions li {
+      margin-bottom: 8px;
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .key-conclusions li:last-child { margin-bottom: 0; }
+
+    /* Cards */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .card-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 700px) {
+      .card-grid-3 { grid-template-columns: 1fr; }
+    }
+
+    .segment-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+    .tag-primary { background: var(--accent-light); color: var(--accent); border: 1px solid var(--accent-mid); }
+    .tag-secondary { background: var(--yellow-light); color: #8a6e20; border: 1px solid var(--yellow-mid); }
+    .tag-later { background: var(--border-light); color: var(--text-muted); border: 1px solid var(--border); }
+
+    /* Tables */
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      background: var(--surface);
+    }
+
+    thead tr {
+      background: var(--bg);
+    }
+
+    th {
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 12px;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border-light);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--bg); }
+
+    .score-cell {
+      text-align: center;
+      font-weight: 600;
+      font-size: 13px;
+      border-radius: 4px;
+      padding: 5px 10px;
+    }
+
+    .score-5 { background: #e8f5ef; color: var(--score-5); }
+    .score-4 { background: #f0f8f4; color: var(--score-4); }
+    .score-3 { background: #fdf9e8; color: var(--score-3); }
+    .score-2 { background: #fef4ee; color: var(--score-2); }
+    .score-1 { background: #feeeed; color: var(--score-1); }
+    .score-total { background: var(--accent-light); color: var(--accent); font-weight: 700; }
+
+    /* AARRR Funnel */
+    .funnel {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 16px;
+    }
+
+    .funnel-stage {
+      display: flex;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-bottom: none;
+      background: var(--surface);
+    }
+
+    .funnel-stage:first-child { border-radius: var(--radius) var(--radius) 0 0; }
+    .funnel-stage:last-child { border-bottom: 1px solid var(--border); border-radius: 0 0 var(--radius) var(--radius); }
+
+    .funnel-label {
+      width: 140px;
+      flex-shrink: 0;
+      padding: 16px 18px;
+      background: var(--bg);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .funnel-label-name {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .funnel-label-metric {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .funnel-content {
+      padding: 14px 18px;
+      flex: 1;
+    }
+
+    .funnel-content h4 {
+      margin-bottom: 4px;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .funnel-content p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 0;
+    }
+
+    .funnel-target {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: var(--accent);
+      background: var(--accent-light);
+      border: 1px solid var(--accent-mid);
+      border-radius: 4px;
+      padding: 2px 7px;
+      display: inline-block;
+      margin-top: 5px;
+    }
+
+    /* Screenshot gallery */
+    .gallery {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-top: 16px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
+    }
+
+    .gallery::-webkit-scrollbar { height: 4px; }
+    .gallery::-webkit-scrollbar-track { background: transparent; }
+    .gallery::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+    .gallery-item {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .gallery-item img {
+      width: 200px;
+      height: 138px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      display: block;
+    }
+
+    .gallery-item-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* Hypothesis cards */
+    .hypothesis-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 680px) {
+      .hypothesis-grid { grid-template-columns: 1fr; }
+    }
+
+    .hypothesis-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .hypothesis-card .if-then {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .if-line, .then-line, .because-line {
+      display: flex;
+      gap: 8px;
+    }
+
+    .if-tag, .then-tag, .because-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      line-height: 1.8;
+    }
+
+    .if-tag { background: var(--accent-light); color: var(--accent); border: 1px solid var(--accent-mid); }
+    .then-tag { background: var(--yellow-light); color: #8a6e20; border: 1px solid var(--yellow-mid); }
+    .because-tag { background: var(--border-light); color: var(--text-secondary); border: 1px solid var(--border); }
+
+    .if-then span { font-size: 13.5px; line-height: 1.5; }
+
+    /* Mechanism cards */
+    .mechanism-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .mechanism-card:last-child { margin-bottom: 0; }
+
+    .mechanism-number {
+      display: inline-block;
+      width: 26px;
+      height: 26px;
+      background: var(--accent);
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 26px;
+      margin-bottom: 10px;
+    }
+
+    .mechanism-source {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    .mechanism-card.wont-work {
+      border-color: var(--red-mid);
+      background: var(--red-light);
+    }
+
+    .mechanism-card.wont-work .mechanism-number {
+      background: var(--score-2);
+    }
+
+    /* Patterns */
+    .pattern-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 10px;
+    }
+
+    .pattern-card.selected {
+      border-color: var(--accent-mid);
+      background: var(--accent-light);
+    }
+
+    .pattern-badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    .pattern-badge.chosen { background: var(--accent); color: white; }
+    .pattern-badge.alt { background: var(--yellow-mid); color: #6a5010; }
+    .pattern-badge.not-fit { background: var(--red-mid); color: #7a1a0a; }
+
+    /* Gaps table */
+    .gap-row td:first-child { font-weight: 500; }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 48px 0 0;
+    }
+
+    /* Chips */
+    .chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .chip {
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: 100px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    /* Source cite */
+    cite {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      font-style: normal;
+    }
+
+    cite a { color: var(--text-muted); }
+    cite a:hover { color: var(--accent); }
+
+    /* Segment cards */
+    .segment-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+    }
+
+    .segment-jtbd {
+      font-size: 13.5px;
+      font-style: italic;
+      color: var(--text-secondary);
+      border-left: 3px solid var(--accent-mid);
+      padding-left: 12px;
+      margin-top: 10px;
+      line-height: 1.55;
+    }
+
+    /* Competitor card */
+    .competitor-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .competitor-card-header {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .competitor-name {
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .competitor-type {
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+    .type-hard { background: #feeeed; color: #8a2020; }
+    .type-soft { background: var(--yellow-light); color: #8a6020; }
+    .type-aspirational { background: var(--accent-light); color: var(--accent); }
+
+    .competitor-card-body {
+      padding: 14px 18px;
+    }
+
+    .competitor-card-body dl {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 6px 12px;
+      font-size: 13px;
+    }
+
+    .competitor-card-body dt {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .competitor-card-body dd { color: var(--text); }
+
+    /* Open questions */
+    .question-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin-bottom: 10px;
+    }
+
+    .question-card h3 {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .question-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .question-meta-item {
+      font-size: 12.5px;
+    }
+
+    .question-meta-label {
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      margin-bottom: 3px;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--border);
+      margin-top: 80px;
+      padding: 32px 0;
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      nav { padding: 0 16px; }
+      main { padding-left: 16px; padding-right: 16px; }
+      h1 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">Tendd Research</span>
+  <div class="nav-links">
+    <a href="#intro">Overview</a>
+    <a href="#product-model">Product Model</a>
+    <a href="#aarrr">AARRR</a>
+    <a href="#competitors">Competitors</a>
+    <a href="#benchmark">Benchmark</a>
+    <a href="#patterns">UX Patterns</a>
+    <a href="#conclusions">Conclusions</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- Hero -->
+  <section class="hero" id="intro">
+    <div class="hero-meta">
+      <span class="badge">Research Sprint</span>
+      <span class="badge">June 2026</span>
+      <span class="badge">v2 validated</span>
+    </div>
+    <h1>Tendd Product Research</h1>
+    <p class="hero-tagline">A mobile-first web app that helps people who are not into finance see and control their recurring payments and subscriptions, turning money anxiety into calm, everyday clarity.</p>
+
+    <div class="key-conclusions">
+      <h3>5 Key Conclusions</h3>
+      <ol>
+        <li><strong>The market is full of powerful apps and empty of peaceful ones.</strong> Every major competitor has expanded into full financial management, trading calm clarity for feature depth. The unoccupied position is "the calm subscription tracker."</li>
+        <li><strong>Trust must be earned before data is asked for.</strong> Every bank-connected competitor asks for bank access in step 1 or 2 of onboarding, before earning trust. This is the single biggest UX gap across the category.</li>
+        <li><strong>The cancel-and-save moment is the most emotionally powerful moment in the product</strong> and no competitor has designed it as a positive experience. It is the natural upgrade trigger and the most shareable moment.</li>
+        <li><strong>Plain language and active voice in financial communication are industry best practices</strong> (Monzo has made this a public design principle), but no subscription tracker has made it a core differentiator.</li>
+        <li><strong>The EU market is underserved</strong> at the calm, simple end. Emma has EU coverage but is complex and feature-heavy. Bobby is simple but iOS-only and manual.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Section 1: Product Model -->
+  <div class="divider"></div>
+  <section class="section" id="product-model">
+    <div class="section-header">
+      <div class="section-label">Section 1</div>
+      <h2>Product Model</h2>
+      <p style="color:var(--text-secondary)">Status: v2 validated. Hypotheses confirmed or updated after competitive analysis and benchmark research.</p>
+    </div>
+
+    <!-- Segments -->
+    <h3>Audience Segments</h3>
+    <div class="card-grid">
+      <div class="segment-card">
+        <span class="segment-tag tag-primary">Primary</span>
+        <h3>The Anxious Millennial</h3>
+        <div class="chip-list">
+          <span class="chip">Age 26-36</span>
+          <span class="chip">Low-medium financial confidence</span>
+          <span class="chip">Subscription-heavy</span>
+        </div>
+        <p style="margin-top:12px;font-size:14px;color:var(--text-secondary)">Comfortable with technology but actively avoids financial apps because they feel stressful or judgmental. Has a vague sense that money is "leaking out."</p>
+        <div class="segment-jtbd">"When I suspect I'm paying for things I forgot about, I want to see all my recurring charges in one calm view, so that I feel in control without becoming a finance person."</div>
+        <p style="margin-top:10px;font-size:12.5px;color:var(--text-muted)">Research status: CONFIRMED. Trust barrier before bank connection is larger than assumed. <cite>Source: Monzo tone-of-voice research, Phase 3 gap analysis.</cite></p>
+      </div>
+
+      <div class="segment-card">
+        <span class="segment-tag tag-secondary">Secondary</span>
+        <h3>The Frugal 30-Something</h3>
+        <div class="chip-list">
+          <span class="chip">Age 30-42</span>
+          <span class="chip">Financially aware</span>
+          <span class="chip">Cost-optimizer</span>
+        </div>
+        <p style="margin-top:12px;font-size:14px;color:var(--text-secondary)">More financially aware, actively wants to trim spend. May already use a basic tool. Wants to find and cancel unused subscriptions without fuss.</p>
+        <div class="segment-jtbd">"When I'm trying to reduce monthly spend, I want to see which subscriptions I actually use vs. the ones I keep forgetting to cancel, so that I can free up money quickly."</div>
+        <p style="margin-top:10px;font-size:12.5px;color:var(--text-muted)">Research status: CONFIRMED with higher acquisition potential than assumed. Intent is explicit (searching for the product). <cite>Source: Rocket Money testimonials, Phase 3.</cite></p>
+      </div>
+
+      <div class="segment-card">
+        <span class="segment-tag tag-later">Later Stage</span>
+        <h3>The Shared-Finances Couple</h3>
+        <div class="chip-list">
+          <span class="chip">Age 28-40</span>
+          <span class="chip">Two-income household</span>
+          <span class="chip">Combined subscriptions</span>
+        </div>
+        <p style="margin-top:12px;font-size:14px;color:var(--text-secondary)">Two people, some individual subscriptions, some shared. Neither has a complete view. Want a single household view to stop paying for duplicates.</p>
+        <div class="segment-jtbd">"When my partner and I want to understand household spend, I want a shared view of all our subscriptions, so that we stop paying for duplicates."</div>
+        <p style="margin-top:10px;font-size:12.5px;color:var(--text-muted)">Research status: CONFIRMED as later stage. Emma added collaborative budgets in 2025. Validates the need but confirms product complexity. <cite>Source: emma-app.com, Phase 3.</cite></p>
+      </div>
+    </div>
+
+    <!-- AIDA -->
+    <h3 style="margin-top:32px">AIDA - Segment A (Primary)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Stage</th><th>Channel</th><th>Message</th><th>Mechanic</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Attention</strong></td><td>TikTok, Reddit, Instagram Reels</td><td>"Found out I was paying for 6 subscriptions I forgot about"</td><td>UGC-style subscription list reveal. No jargon, emotional hook.</td></tr>
+          <tr><td><strong>Interest</strong></td><td>Landing page</td><td>"See all your subscriptions in one calm view - no stress, no jargon"</td><td>Product preview with real logos. Progressive trust before asking for anything.</td></tr>
+          <tr><td><strong>Desire</strong></td><td>Onboarding first session</td><td>"Here's your monthly total. Here's what's in it. Here are 2 you might want to look at."</td><td>Guided Reveal: one number, one insight, zero judgment. Calm, not alarm.</td></tr>
+          <tr><td><strong>Action</strong></td><td>Post-reveal upgrade prompt</td><td>"Find your full history and cancel easily - try Pro"</td><td>Trigger at moment of discovering a forgotten subscription.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section 2: AARRR -->
+  <div class="divider"></div>
+  <section class="section" id="aarrr">
+    <div class="section-header">
+      <div class="section-label">Section 2</div>
+      <h2>AARRR Funnel</h2>
+      <p style="color:var(--text-secondary)">All targets are hypotheses marked [? hypothesis]. No competitor data was used to set these targets.</p>
+    </div>
+
+    <div class="funnel">
+      <div class="funnel-stage">
+        <div class="funnel-label">
+          <div class="funnel-label-name">Acquisition</div>
+          <div class="funnel-label-metric">New signups/week</div>
+        </div>
+        <div class="funnel-content">
+          <h4>Channels: TikTok/Reddit organic, SEO, word of mouth</h4>
+          <p>Shareable "subscription snapshot" card (total + count) as primary organic mechanic. SEO around "subscription tracker" and "how to cancel X."</p>
+          <span class="funnel-target">100 signups/week at 3 months [? hypothesis]</span>
+        </div>
+      </div>
+      <div class="funnel-stage">
+        <div class="funnel-label">
+          <div class="funnel-label-name">Activation</div>
+          <div class="funnel-label-metric">% who see sub list in session 1</div>
+        </div>
+        <div class="funnel-content">
+          <h4>Trigger: User sees the full subscription list (the "aha moment")</h4>
+          <p>Guided Reveal onboarding. Single job, single screen, maximum one step before showing value. Bank connection is recommended but not required.</p>
+          <span class="funnel-target">35-40% within 24h [? hypothesis]</span>
+        </div>
+      </div>
+      <div class="funnel-stage">
+        <div class="funnel-label">
+          <div class="funnel-label-name">Retention</div>
+          <div class="funnel-label-metric">30-day active rate</div>
+        </div>
+        <div class="funnel-content">
+          <h4>Mechanics: Weekly email digest + price-change alerts</h4>
+          <p>Ship the weekly digest on day 1. Price-change alerts are the highest-ROI push notification because they are genuinely useful, not promotional.</p>
+          <span class="funnel-target">30% free / 60% paid [? hypothesis]</span>
+        </div>
+      </div>
+      <div class="funnel-stage">
+        <div class="funnel-label">
+          <div class="funnel-label-name">Revenue</div>
+          <div class="funnel-label-metric">Free-to-paid, 90 days</div>
+        </div>
+        <div class="funnel-content">
+          <h4>Trigger: Finding a forgotten subscription OR hitting free tier limit</h4>
+          <p>Freemium, Tendd Pro ~$4-6/mo. The upgrade prompt lives at the emotional peak of the "forgotten subscription discovery" moment, not on a generic paywall.</p>
+          <span class="funnel-target">5-8% within 90 days [? hypothesis]</span>
+        </div>
+      </div>
+      <div class="funnel-stage">
+        <div class="funnel-label">
+          <div class="funnel-label-name">Referral</div>
+          <div class="funnel-label-metric">% signups from referral</div>
+        </div>
+        <div class="funnel-content">
+          <h4>Mechanic: Shareable subscription snapshot (Spotify Wrapped-style)</h4>
+          <p>No formal referral program in MVP. The shareable card is more authentic for this audience. Users who cancel a subscription are most likely to share.</p>
+          <span class="funnel-target">15-20% at 6 months [? hypothesis]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Competitors -->
+  <div class="divider"></div>
+  <section class="section" id="competitors">
+    <div class="section-header">
+      <div class="section-label">Section 3</div>
+      <h2>Competitive Landscape</h2>
+      <p style="color:var(--text-secondary)">All data from public pre-login pages. Screenshots captured via Playwright. Anything [? behind login] was not accessible.</p>
+    </div>
+
+    <!-- Screenshot gallery -->
+    <h3>Competitor Screenshots (Public Pages Only)</h3>
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="research/screens/rocketmoney-landing.png" alt="Rocket Money landing page">
+        <div class="gallery-item-label">Rocket Money - Landing</div>
+      </div>
+      <div class="gallery-item">
+        <img src="research/screens/emma-landing.png" alt="Emma landing page">
+        <div class="gallery-item-label">Emma - Landing</div>
+      </div>
+      <div class="gallery-item">
+        <img src="research/screens/emma-pricing.png" alt="Emma plans page">
+        <div class="gallery-item-label">Emma - Plans</div>
+      </div>
+      <div class="gallery-item">
+        <img src="research/screens/hiatus-landing.png" alt="Hiatus landing page">
+        <div class="gallery-item-label">Hiatus - Landing</div>
+      </div>
+      <div class="gallery-item">
+        <img src="research/screens/bobby-landing.png" alt="Bobby landing page">
+        <div class="gallery-item-label">Bobby - Landing</div>
+      </div>
+      <div class="gallery-item">
+        <img src="research/screens/ynab-landing.png" alt="YNAB landing page">
+        <div class="gallery-item-label">YNAB - Landing</div>
+      </div>
+      <div class="gallery-item">
+        <img src="research/screens/ynab-pricing.png" alt="YNAB pricing page">
+        <div class="gallery-item-label">YNAB - Pricing</div>
+      </div>
+      <div class="gallery-item">
+        <img src="research/screens/monarch-landing.png" alt="Monarch Money landing page">
+        <div class="gallery-item-label">Monarch - Landing</div>
+      </div>
+      <div class="gallery-item">
+        <img src="research/screens/monarch-pricing.png" alt="Monarch pricing page">
+        <div class="gallery-item-label">Monarch - Pricing</div>
+      </div>
+      <div class="gallery-item">
+        <img src="research/screens/copilot-landing.png" alt="Copilot Money landing page">
+        <div class="gallery-item-label">Copilot - Landing</div>
+      </div>
+      <div class="gallery-item">
+        <img src="research/screens/revolut-landing.png" alt="Revolut landing page">
+        <div class="gallery-item-label">Revolut - Landing</div>
+      </div>
+      <div class="gallery-item">
+        <img src="research/screens/monzo-landing.png" alt="Monzo landing page">
+        <div class="gallery-item-label">Monzo - Landing</div>
+      </div>
+      <div class="gallery-item">
+        <img src="research/screens/applecard-landing.png" alt="Apple Card landing page">
+        <div class="gallery-item-label">Apple Card - Landing</div>
+      </div>
+    </div>
+
+    <!-- Comparison table -->
+    <h3 style="margin-top:32px">5 Products x 5 Axes</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Audience</th>
+            <th>Product Foundation</th>
+            <th>Key Mechanisms</th>
+            <th>Trust Signals</th>
+            <th>Monetization</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Rocket Money</strong> <span class="competitor-type type-hard">Hard</span></td>
+            <td>Broad US, 10M+ members</td>
+            <td>All-in-one: subscriptions, budgeting, credit, net worth</td>
+            <td>Plaid auto-detect, cancellation concierge, bill negotiation</td>
+            <td>10M+ members, $2.5B savings claim, FDIC banking</td>
+            <td>Free + $7-14/mo + 35-60% bill savings</td>
+          </tr>
+          <tr>
+            <td><strong>Emma</strong> <span class="competitor-type type-hard">Hard</span></td>
+            <td>UK/EU millennials, 2M+ users</td>
+            <td>Full money app: subscriptions, budgeting, investing, payments</td>
+            <td>FCA open banking, subscription detection, collaborative budgets</td>
+            <td>FCA regulated, Forbes/FT logos, 2M+ users</td>
+            <td>Free + £4.99-14.99/mo (3 tiers)</td>
+          </tr>
+          <tr>
+            <td><strong>Hiatus</strong> <span class="competitor-type type-hard">Hard</span></td>
+            <td>US expense-reducers</td>
+            <td>Subscription + bill negotiation + light budget</td>
+            <td>Auto-detect, flat-fee bill negotiation, rate comparison</td>
+            <td>2,000+ 5-star reviews, phone support</td>
+            <td>Free + $9.99/mo or $35.99/yr</td>
+          </tr>
+          <tr>
+            <td><strong>Bobby</strong> <span class="competitor-type type-hard">Hard</span></td>
+            <td>iOS privacy-conscious users</td>
+            <td>Manual subscription tracker only</td>
+            <td>Manual entry, reminders, calendar view</td>
+            <td>4.7 App Store (8K reviews), no bank access</td>
+            <td>Free + one-time IAP</td>
+          </tr>
+          <tr>
+            <td><strong>YNAB</strong> <span class="competitor-type type-soft">Soft</span></td>
+            <td>Committed budgeters</td>
+            <td>Zero-based budgeting system</td>
+            <td>Rules-based allocation, goal tracking, workshops</td>
+            <td>$6K avg yr 1 savings, 4.8 App Store, strong community</td>
+            <td>No free tier. $14.99/mo or $109/yr</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12.5px;color:var(--text-muted);margin-top:8px">Sources: <cite><a href="https://www.rocketmoney.com/">rocketmoney.com</a>, <a href="https://emma-app.com/">emma-app.com</a>, <a href="https://hiatusapp.com/">hiatusapp.com</a>, <a href="https://bobbyapp.co/">bobbyapp.co</a>, <a href="https://www.ynab.com/">ynab.com</a></cite></p>
+
+    <!-- 3 Patterns + 3 Differences -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px">
+      <div>
+        <h3>3 Common Patterns</h3>
+        <div class="card" style="margin-top:10px">
+          <p><strong>P1: Bank connection as primary activation path.</strong> All auto-detection competitors use bank linking as step 1 or 2. Fastest route to value, but biggest trust barrier for the anxious user.</p>
+          <p><strong>P2: Feature accumulation crowds out the core.</strong> Every subscription tracker that gained scale expanded into full personal finance. The original calm view is buried under feature depth.</p>
+          <p><strong>P3: Freemium with aggressive upsell.</strong> Emma is specifically noted: "constant prompts disrupt an otherwise smooth experience." <cite>Source: <a href="https://orbitmoney.io/compare/emma-app-review">orbitmoney.io</a></cite></p>
+        </div>
+      </div>
+      <div>
+        <h3>3 Key Differences</h3>
+        <div class="card" style="margin-top:10px">
+          <p><strong>D1: Auto-detection vs. manual entry.</strong> Fundamentally different trust models. Neither fully solves the anxious user's bank-connection barrier.</p>
+          <p><strong>D2: Focused vs. all-in-one scope.</strong> Bobby and YNAB have stronger brand identity and higher user satisfaction in their niche than the all-in-one products.</p>
+          <p><strong>D3: Data sharing transparency.</strong> Monarch Money explicitly states "we do not sell your data" - no direct competitor makes data use a front-page trust signal. <cite>Source: <a href="https://www.thepennyhoarder.com/budgeting/monarch-money-review/">thepennyhoarder.com</a></cite></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gaps table -->
+    <h3 style="margin-top:32px">Market Gaps (Our Opportunity)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Gap</th><th>Source</th><th>Our Response</th></tr></thead>
+        <tbody>
+          <tr class="gap-row"><td>No calm-first subscription tracker exists</td><td>Phase 3, patterns P1/P2</td><td>Core design principle #1: Calm over clever</td></tr>
+          <tr class="gap-row"><td>No competitor earns trust before asking for bank access</td><td>Phase 4 benchmark C8</td><td>Guided Reveal onboarding shows value before bank connection prompt</td></tr>
+          <tr class="gap-row"><td>Cancel moment is never designed as a positive emotional experience</td><td>Phase 3 gap #4</td><td>Cancel discovery is a "win" moment - celebrated, shared, and used as upgrade trigger</td></tr>
+          <tr class="gap-row"><td>Plain language is not a market differentiator</td><td>Phase 4 Monzo benchmark</td><td>Active voice + real merchant names in every string</td></tr>
+          <tr class="gap-row"><td>EU-native calm subscription tracker does not exist at the simple end</td><td>Phase 3 - Emma is EU but complex, Bobby is simple but iOS-only</td><td>Cross-platform web-first, EU open banking support from launch</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section 4: Benchmark -->
+  <div class="divider"></div>
+  <section class="section" id="benchmark">
+    <div class="section-header">
+      <div class="section-label">Section 4</div>
+      <h2>Benchmark: Trust and First-Time Clarity</h2>
+      <p style="color:var(--text-secondary)">The most strategically important dimension. Trust and clarity are not nice-to-haves - they are activation requirements for the anxious non-financial user.</p>
+    </div>
+
+    <!-- Benchmark screenshots -->
+    <h3>Benchmark Screenshots</h3>
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="research/screens/revolut-us-landing.png" alt="Revolut US landing">
+        <div class="gallery-item-label">Revolut - US</div>
+      </div>
+      <div class="gallery-item">
+        <img src="research/screens/monzo-landing.png" alt="Monzo landing">
+        <div class="gallery-item-label">Monzo - Landing</div>
+      </div>
+      <div class="gallery-item">
+        <img src="research/screens/monzo-tone-of-voice.png" alt="Monzo tone of voice">
+        <div class="gallery-item-label">Monzo - Tone of Voice</div>
+      </div>
+      <div class="gallery-item">
+        <img src="research/screens/applecard-landing.png" alt="Apple Card landing">
+        <div class="gallery-item-label">Apple Card - Landing</div>
+      </div>
+      <div class="gallery-item">
+        <img src="research/screens/applecard-features.png" alt="Apple Card features">
+        <div class="gallery-item-label">Apple Card - Features</div>
+      </div>
+      <div class="gallery-item">
+        <img src="research/screens/copilot-landing.png" alt="Copilot Money landing">
+        <div class="gallery-item-label">Copilot - Landing</div>
+      </div>
+    </div>
+
+    <!-- Score table -->
+    <h3 style="margin-top:32px">Score Table (1-5 scale, public pages only)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>C1 First Screen</th>
+            <th>C2 Data/Fees</th>
+            <th>C3 Calm Money</th>
+            <th>C4 Friction</th>
+            <th>C5 Social Proof</th>
+            <th>C6 User Control</th>
+            <th>C7 Error Honesty</th>
+            <th>C8 Pre-Bank Value</th>
+            <th>Total /40</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Revolut</strong></td>
+            <td class="score-cell score-5">5</td>
+            <td class="score-cell score-3">3</td>
+            <td class="score-cell score-4">4</td>
+            <td class="score-cell score-4">4</td>
+            <td class="score-cell score-4">4</td>
+            <td class="score-cell score-4">4</td>
+            <td class="score-cell score-3">3</td>
+            <td class="score-cell score-3">3</td>
+            <td class="score-cell score-total">30</td>
+          </tr>
+          <tr>
+            <td><strong>Monzo</strong></td>
+            <td class="score-cell score-5">5</td>
+            <td class="score-cell score-4">4</td>
+            <td class="score-cell score-5">5</td>
+            <td class="score-cell score-4">4</td>
+            <td class="score-cell score-4">4</td>
+            <td class="score-cell score-4">4</td>
+            <td class="score-cell score-4">4</td>
+            <td class="score-cell score-3">3</td>
+            <td class="score-cell score-total">33</td>
+          </tr>
+          <tr>
+            <td><strong>Apple Card</strong></td>
+            <td class="score-cell score-5">5</td>
+            <td class="score-cell score-5">5</td>
+            <td class="score-cell score-5">5</td>
+            <td class="score-cell score-4">4</td>
+            <td class="score-cell score-3">3</td>
+            <td class="score-cell score-4">4</td>
+            <td class="score-cell score-4">4</td>
+            <td class="score-cell score-4">4</td>
+            <td class="score-cell score-total">34</td>
+          </tr>
+          <tr>
+            <td><strong>Copilot Money</strong></td>
+            <td class="score-cell score-4">4</td>
+            <td class="score-cell score-3">3</td>
+            <td class="score-cell score-4">4</td>
+            <td class="score-cell score-3">3</td>
+            <td class="score-cell score-3">3</td>
+            <td class="score-cell score-4">4</td>
+            <td class="score-cell score-3">3</td>
+            <td class="score-cell score-2">2</td>
+            <td class="score-cell score-total">26</td>
+          </tr>
+          <tr>
+            <td><strong>YNAB</strong></td>
+            <td class="score-cell score-3">3</td>
+            <td class="score-cell score-4">4</td>
+            <td class="score-cell score-3">3</td>
+            <td class="score-cell score-2">2</td>
+            <td class="score-cell score-4">4</td>
+            <td class="score-cell score-3">3</td>
+            <td class="score-cell score-4">4</td>
+            <td class="score-cell score-2">2</td>
+            <td class="score-cell score-total">25</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Top 3 mechanisms -->
+    <h3 style="margin-top:32px">Top 3 Mechanisms to Carry to MVP</h3>
+
+    <div class="mechanism-card">
+      <div class="mechanism-number">1</div>
+      <h3>Active Voice + First-Person Responsibility (Monzo)</h3>
+      <p>Principle: "Say who did the thing." Instead of "your payment was declined" (passive, vague), write "we couldn't take this payment - your card was declined by [merchant]" (active, specific, honest).</p>
+      <p style="margin-top:8px"><strong>Where to use it:</strong> Every notification, error state, and alert in the product. "Spotify raised your price from $9.99 to $11.99 last month" not "a price change was detected."</p>
+      <p style="margin-top:8px"><strong>Why it works:</strong> Passive voice in financial communication creates anxiety because the user does not know who is responsible. Active voice with clear attribution creates the feeling of being informed and in control.</p>
+      <div class="mechanism-source">Source: <a href="https://monzo.com/tone-of-voice">monzo.com/tone-of-voice</a></div>
+    </div>
+
+    <div class="mechanism-card">
+      <div class="mechanism-number">2</div>
+      <h3>Pre-emptive Trust Declaration - Name the Fear (Apple Card)</h3>
+      <p>Apple Card's commitment: "No fees. Not even hidden ones." A specific, direct statement that names the user's biggest fear and explicitly denies it. Not generic reassurance - a precise, falsifiable claim.</p>
+      <p style="margin-top:8px"><strong>Where to use it:</strong> Landing page hero ("We don't sell your data. Here's exactly what we read from your bank: [list]."), bank connection prompt, pricing page.</p>
+      <p style="margin-top:8px"><strong>Why it works:</strong> For the anxious user, vague reassurances trigger more anxiety than no reassurance at all. A specific statement that names the fear is processed as evidence of honesty, not marketing.</p>
+      <div class="mechanism-source">Source: <a href="https://www.apple.com/newsroom/2019/03/introducing-apple-card-a-new-kind-of-credit-card-created-by-apple/">apple.com/newsroom - Apple Card launch</a></div>
+    </div>
+
+    <div class="mechanism-card">
+      <div class="mechanism-number">3</div>
+      <h3>Transaction Clarity Layer - Real Names and Logos (Apple Card)</h3>
+      <p>Apple Card replaces cryptic bank codes (e.g. "AMZN MKTP US*AB123") with real merchant names, logos, location, and category. Every transaction is immediately recognizable.</p>
+      <p style="margin-top:8px"><strong>Where to use it:</strong> Every subscription card in the list. Show logo, real name, category tag, amount, next date. Never show raw bank transaction strings.</p>
+      <p style="margin-top:8px"><strong>Why it works:</strong> Cryptic transaction strings are a primary source of financial anxiety. Showing the real merchant name converts confusion (a negative state) into recognition (a positive one).</p>
+      <div class="mechanism-source">Source: <a href="https://support.apple.com/en-us/102329">support.apple.com - Apple Card spending history</a></div>
+    </div>
+
+    <div class="mechanism-card wont-work">
+      <div class="mechanism-number">X</div>
+      <h3>Will NOT Work: YNAB Zero-Based Budgeting</h3>
+      <p>YNAB's method requires knowing your monthly income precisely, pre-allocating it to 20-30+ categories, updating allocations when reality diverges, and reviewing the system weekly. Each step is stressful for the anxious non-financial user.</p>
+      <p style="margin-top:8px"><strong>Why it fails here:</strong> YNAB's own review ecosystem acknowledges: "Most people take 2-4 months to get it." Our user needs calm in session 1, not a 3-month learning curve. The product should be designed so that seeing subscriptions clearly is itself the complete outcome - not a stepping stone to full budgeting.</p>
+      <div class="mechanism-source">Source: <a href="https://www.nerdwallet.com/finance/learn/ynab-app-review">nerdwallet.com - YNAB review</a></div>
+    </div>
+  </section>
+
+  <!-- Section 5: UX Patterns -->
+  <div class="divider"></div>
+  <section class="section" id="patterns">
+    <div class="section-header">
+      <div class="section-label">Section 5</div>
+      <h2>UX Patterns</h2>
+      <p style="color:var(--text-secondary)">Based on the validated v2 product model and audience behavior analysis.</p>
+    </div>
+
+    <h3>5 Patterns Evaluated</h3>
+
+    <div class="pattern-card selected">
+      <h3>Pattern A: Automated Dashboard (Hub-and-Spoke) <span class="pattern-badge chosen">Primary (return sessions)</span></h3>
+      <p>Central dashboard auto-populated from bank data. Each subscription is a card with logo, name, amount, next date. Works best after trust is established. Used by: Rocket Money, Emma, Hiatus.</p>
+    </div>
+
+    <div class="pattern-card selected">
+      <h3>Pattern C: Guided Reveal (Story Flow) <span class="pattern-badge chosen">Primary (onboarding)</span></h3>
+      <p>Onboarding structured as a progressive reveal: Step 1 - "Here's your monthly total." Step 2 - "Here are your subscriptions by category." Step 3 - "Here are 2 you might want to review." Turns financial data review from a task into an experience. Not used as primary pattern by any current competitor.</p>
+    </div>
+
+    <div class="pattern-card">
+      <h3>Pattern B: Manual-Entry Calendar <span class="pattern-badge alt">Alternative (if bank adoption &lt;20%)</span></h3>
+      <p>User manually enters subscriptions. Primary view is a calendar of upcoming payments. No bank connection required. Used by: Bobby. Preserves calm, low-friction value if auto-detection fails at scale.</p>
+    </div>
+
+    <div class="pattern-card">
+      <h3>Pattern D: Notification-First (Push-Driven)</h3>
+      <p>Product primarily experienced through notifications, not the app. Alert tells the user when something changed. App is the secondary surface. High-value as a retention layer but not primary UX. Used as overlay by Rocket Money, Emma.</p>
+    </div>
+
+    <div class="pattern-card">
+      <h3>Pattern E: Conversational / AI-Assisted <span class="pattern-badge not-fit">Does Not Fit</span></h3>
+      <p>Chat or AI interface for managing subscriptions. Breaks the "glanceable" requirement. For the anxious user, an AI chat creates new uncertainty rather than removing it. A conversation requires 10-30 seconds minimum vs. 3 seconds for a well-designed dashboard. Opposite of our calm clarity differentiator.</p>
+    </div>
+
+    <div class="card" style="margin-top:24px;background:var(--accent-light);border-color:var(--accent-mid)">
+      <h3>Why This Combination Works</h3>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:12px">
+        <div>
+          <h4>Reason 1 - JTBD</h4>
+          <p style="font-size:13.5px">Solves the financial-avoidance problem. The Guided Reveal gives the anxious user one thing to do: "let me show you." No choices, no empty dashboard, no configuration before value.</p>
+        </div>
+        <div>
+          <h4>Reason 2 - Competitor Gap</h4>
+          <p style="font-size:13.5px">No competitor has designed the first subscription view as a positive emotional experience. The Guided Reveal is directly analogous to Spotify Wrapped - a personal data reveal as a satisfying moment.</p>
+        </div>
+        <div>
+          <h4>Reason 3 - Revenue</h4>
+          <p style="font-size:13.5px">Creates the natural upgrade trigger. The Guided Reveal ends at the moment of highest motivation - after seeing the list, the user is ready to act. The upgrade to paid lives here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Conclusions -->
+  <div class="divider"></div>
+  <section class="section" id="conclusions">
+    <div class="section-header">
+      <div class="section-label">Section 6</div>
+      <h2>Conclusions</h2>
+    </div>
+
+    <!-- Hypotheses -->
+    <h3>6 Hypotheses</h3>
+    <div class="hypothesis-grid">
+
+      <div class="hypothesis-card">
+        <div class="if-then">
+          <div class="if-line"><span class="if-tag">IF</span><span>we show users their subscription list before asking for bank connection (demo mode or sample data),</span></div>
+          <div class="then-line"><span class="then-tag">THEN</span><span>bank connection rate will be higher than competitors' first-step bank request,</span></div>
+          <div class="because-line"><span class="because-tag">BECAUSE</span><span>users who see the value first have a concrete reason to share their data. <cite>Evidence: Phase 4 benchmark C8 - best competitor scores 4/5 on pre-bank value.</cite></span></div>
+        </div>
+      </div>
+
+      <div class="hypothesis-card">
+        <div class="if-then">
+          <div class="if-line"><span class="if-tag">IF</span><span>we frame the first subscription reveal as a calm discovery moment rather than a financial report,</span></div>
+          <div class="then-line"><span class="then-tag">THEN</span><span>the share rate and return visit rate will exceed industry benchmarks,</span></div>
+          <div class="because-line"><span class="because-tag">BECAUSE</span><span>the emotional valence of a positive discovery is more memorable and shareable than a financial audit. <cite>Evidence: Spotify Wrapped's viral sharing behavior.</cite></span></div>
+        </div>
+      </div>
+
+      <div class="hypothesis-card">
+        <div class="if-then">
+          <div class="if-line"><span class="if-tag">IF</span><span>we use active voice, real merchant names, and plain-language notifications for every financial communication,</span></div>
+          <div class="then-line"><span class="then-tag">THEN</span><span>user trust scores and notification engagement will exceed fintech category averages,</span></div>
+          <div class="because-line"><span class="because-tag">BECAUSE</span><span>Monzo's published research shows plain language is rated more authoritative than formal financial language, and active voice creates the experience of being informed rather than managed. <cite>Source: <a href="https://monzo.com/tone-of-voice">monzo.com/tone-of-voice</a></cite></span></div>
+        </div>
+      </div>
+
+      <div class="hypothesis-card">
+        <div class="if-then">
+          <div class="if-line"><span class="if-tag">IF</span><span>the upgrade trigger is placed immediately after a user discovers a forgotten subscription (not on a generic paywall),</span></div>
+          <div class="then-line"><span class="then-tag">THEN</span><span>free-to-paid conversion will exceed the 5-8% hypothesis,</span></div>
+          <div class="because-line"><span class="because-tag">BECAUSE</span><span>the emotional peak of "I found money I was wasting" is the highest-motivation moment in the user journey. <cite>Evidence: Rocket Money's top testimonials all reference this moment.</cite></span></div>
+        </div>
+      </div>
+
+      <div class="hypothesis-card">
+        <div class="if-then">
+          <div class="if-line"><span class="if-tag">IF</span><span>the free tier allows up to 10 subscriptions with full feature access (not a degraded experience),</span></div>
+          <div class="then-line"><span class="then-tag">THEN</span><span>word-of-mouth referral rate will exceed 15%,</span></div>
+          <div class="because-line"><span class="because-tag">BECAUSE</span><span>a product that feels genuinely useful generates positive stories, while a "limited free tier" generates resentment. <cite>Evidence: Bobby's 4.7 App Store rating driven by users who get full value from the free tier. Source: <a href="https://resubs.app/resources/best-subscription-tracker-apps">resubs.app</a></cite></span></div>
+        </div>
+      </div>
+
+      <div class="hypothesis-card">
+        <div class="if-then">
+          <div class="if-line"><span class="if-tag">IF</span><span>we launch with EU open banking support (TrueLayer or Nordigen) alongside US Plaid,</span></div>
+          <div class="then-line"><span class="then-tag">THEN</span><span>EU market activation rates will match US rates within 6 months,</span></div>
+          <div class="because-line"><span class="because-tag">BECAUSE</span><span>there is no calm EU-native subscription tracker at the simple end of the market. <cite>Evidence: Emma's 2M+ EU users despite high complexity suggests unmet demand. Source: <a href="https://emma-app.com/">emma-app.com</a></cite></span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Open questions -->
+    <h3 style="margin-top:32px">Open Questions</h3>
+
+    <div class="question-card">
+      <h3>What % of users will connect a bank account vs. use manual entry?</h3>
+      <div class="question-meta">
+        <div class="question-meta-item"><div class="question-meta-label">Why It Matters</div>This is the core activation design decision - the entire onboarding flow depends on this answer.</div>
+        <div class="question-meta-item"><div class="question-meta-label">How to Answer</div>MVP A/B test: bank connection in step 1 vs. demo-first then bank connection prompt.</div>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <h3>What is the right free tier limit - subscription count, features, or time?</h3>
+      <div class="question-meta">
+        <div class="question-meta-item"><div class="question-meta-label">Why It Matters</div>Free tier generosity drives both word of mouth and willingness to pay. Getting it wrong in either direction kills growth.</div>
+        <div class="question-meta-item"><div class="question-meta-label">How to Answer</div>User research: interview 10 free users about what would make them upgrade.</div>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <h3>Does the Guided Reveal work for users with only 2-3 subscriptions?</h3>
+      <div class="question-meta">
+        <div class="question-meta-item"><div class="question-meta-label">Why It Matters</div>If the reveal is underwhelming for small-subscription users, the primary onboarding pattern fails for a significant portion of users.</div>
+        <div class="question-meta-item"><div class="question-meta-label">How to Answer</div>Prototype test with users who have fewer than 5 subscriptions.</div>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <h3>Is $4.99/mo or $6.99/mo the right price for Tendd Pro?</h3>
+      <div class="question-meta">
+        <div class="question-meta-item"><div class="question-meta-label">Why It Matters</div>Pricing affects conversion rate, LTV, and positioning. Monarch Money at $14.99 and YNAB at $14.99 suggest market can bear more.</div>
+        <div class="question-meta-item"><div class="question-meta-label">How to Answer</div>Pricing page A/B test after launch; Van Westendorp price sensitivity survey in user research.</div>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <h3>Which EU open banking provider has the best coverage for our markets?</h3>
+      <div class="question-meta">
+        <div class="question-meta-item"><div class="question-meta-label">Why It Matters</div>TrueLayer vs. Nordigen (GoCardless) have different reliability and geographic coverage across UK, Germany, France, Netherlands.</div>
+        <div class="question-meta-item"><div class="question-meta-label">How to Answer</div>Technical evaluation: build a proof-of-concept against both providers and measure real coverage.</div>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <h3>How long does bank sync take for a new user's first subscription view?</h3>
+      <div class="question-meta">
+        <div class="question-meta-item"><div class="question-meta-label">Why It Matters</div>If sync takes more than 60 seconds, the Guided Reveal pattern fails at the activation step.</div>
+        <div class="question-meta-item"><div class="question-meta-label">How to Answer</div>Technical benchmark during early development. Design a loading state that maintains calm if sync is slow.</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>Tendd Product Research - June 2026 - All facts cited. All targets marked [? hypothesis].</p>
+    <p style="margin-top:4px">Research files: <a href="research/competitive-analysis.md">Competitive Analysis</a> - <a href="research/benchmark-trust.md">Benchmark</a> - <a href="research/ux-patterns.md">UX Patterns</a> - <a href="research/master-research.md">Master Synthesis</a></p>
+  </div>
+
+</main>
+
+</body>
+</html>
