@@ -719,19 +719,20 @@
     <div class="hero-meta">
       <span class="badge">Research Sprint</span>
       <span class="badge">June 2026</span>
-      <span class="badge">v2 validated</span>
+      <span class="badge">v_refresh</span>
     </div>
     <h1>Tendd Product Research</h1>
     <p class="hero-tagline">A mobile-first web app that helps people who are not into finance see and control their recurring payments and subscriptions, turning money anxiety into calm, everyday clarity.</p>
 
     <div class="key-conclusions">
-      <h3>5 Key Conclusions</h3>
+      <h3>6 Key Conclusions</h3>
       <ol>
         <li><strong>The market is full of powerful apps and empty of peaceful ones.</strong> Every major competitor has expanded into full financial management, trading calm clarity for feature depth. The unoccupied position is "the calm subscription tracker."</li>
         <li><strong>Trust must be earned before data is asked for.</strong> Every bank-connected competitor asks for bank access in step 1 or 2 of onboarding, before earning trust. This is the single biggest UX gap across the category.</li>
         <li><strong>The cancel-and-save moment is the most emotionally powerful moment in the product</strong> and no competitor has designed it as a positive experience. It is the natural upgrade trigger and the most shareable moment.</li>
         <li><strong>Plain language and active voice in financial communication are industry best practices</strong> (Monzo has made this a public design principle), but no subscription tracker has made it a core differentiator.</li>
         <li><strong>The EU market is underserved</strong> at the calm, simple end. Emma has EU coverage but is complex and feature-heavy. Bobby is simple but iOS-only and manual.</li>
+        <li><strong>The privacy-first user is a real, reachable segment - not an edge case.</strong> ReSubs has 18K+ users with zero bank connection required, validating a second activation path as a market expansion move, not a fallback. <cite>Source: <a href="https://resubs.app/">resubs.app</a></cite></li>
       </ol>
     </div>
   </section>
@@ -742,23 +743,36 @@
     <div class="section-header">
       <div class="section-label">Section 1</div>
       <h2>Product Model</h2>
-      <p style="color:var(--text-secondary)">Status: v2 validated. Hypotheses confirmed or updated after competitive analysis and benchmark research.</p>
+      <p style="color:var(--text-secondary)">Status: v_refresh (June 2026). Segment A split into bank-willing (A1) and privacy-first (A2). Both treated as equal-priority primary segments. All hypotheses confirmed or updated after competitive analysis refresh.</p>
     </div>
 
     <!-- Segments -->
     <h3>Audience Segments</h3>
     <div class="card-grid">
       <div class="segment-card">
-        <span class="segment-tag tag-primary">Primary</span>
-        <h3>The Anxious Millennial</h3>
+        <span class="segment-tag tag-primary">Primary - A1</span>
+        <h3>The Anxious Millennial (Bank-Willing)</h3>
         <div class="chip-list">
           <span class="chip">Age 26-36</span>
           <span class="chip">Low-medium financial confidence</span>
-          <span class="chip">Subscription-heavy</span>
+          <span class="chip">Trusts brand enough to connect bank</span>
         </div>
-        <p style="margin-top:12px;font-size:14px;color:var(--text-secondary)">Comfortable with technology but actively avoids financial apps because they feel stressful or judgmental. Has a vague sense that money is "leaking out."</p>
+        <p style="margin-top:12px;font-size:14px;color:var(--text-secondary)">Comfortable with technology but avoids finance apps. Will connect bank if trust is earned first. Has a vague sense that money is "leaking out."</p>
         <div class="segment-jtbd">"When I suspect I'm paying for things I forgot about, I want to see all my recurring charges in one calm view, so that I feel in control without becoming a finance person."</div>
-        <p style="margin-top:10px;font-size:12.5px;color:var(--text-muted)">Research status: CONFIRMED. Trust barrier before bank connection is larger than assumed. <cite>Source: Monzo tone-of-voice research, Phase 3 gap analysis.</cite></p>
+        <p style="margin-top:10px;font-size:12.5px;color:var(--text-muted)">Research status: CONFIRMED. Trust barrier before bank connection is larger than assumed. <cite>Source: Monzo tone-of-voice, Phase 3 gap analysis.</cite></p>
+      </div>
+
+      <div class="segment-card">
+        <span class="segment-tag tag-primary">Primary - A2</span>
+        <h3>The Anxious Millennial (Privacy-First)</h3>
+        <div class="chip-list">
+          <span class="chip">Age 26-36</span>
+          <span class="chip">Same anxiety profile as A1</span>
+          <span class="chip">Unwilling to connect bank</span>
+        </div>
+        <p style="margin-top:12px;font-size:14px;color:var(--text-secondary)">Same anxiety and subscription-heavy profile as A1, but privacy concerns or distrust prevent bank connection. Will track manually if the experience is fast and calm.</p>
+        <div class="segment-jtbd">"When I want to understand my subscription spend, I want to track them myself without giving any app access to my bank, so I feel in control AND secure."</div>
+        <p style="margin-top:10px;font-size:12.5px;color:var(--text-muted)">Research status: NEW - validated by ReSubs 18K+ users, no bank required. Equal priority to A1. <cite>Source: <a href="https://resubs.app/">resubs.app</a></cite></p>
       </div>
 
       <div class="segment-card">
@@ -789,15 +803,15 @@
     </div>
 
     <!-- AIDA -->
-    <h3 style="margin-top:32px">AIDA - Segment A (Primary)</h3>
+    <h3 style="margin-top:32px">AIDA - Segments A1 + A2 (Primary)</h3>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Stage</th><th>Channel</th><th>Message</th><th>Mechanic</th></tr></thead>
         <tbody>
-          <tr><td><strong>Attention</strong></td><td>TikTok, Reddit, Instagram Reels</td><td>"Found out I was paying for 6 subscriptions I forgot about"</td><td>UGC-style subscription list reveal. No jargon, emotional hook.</td></tr>
-          <tr><td><strong>Interest</strong></td><td>Landing page</td><td>"See all your subscriptions in one calm view - no stress, no jargon"</td><td>Product preview with real logos. Progressive trust before asking for anything.</td></tr>
-          <tr><td><strong>Desire</strong></td><td>Onboarding first session</td><td>"Here's your monthly total. Here's what's in it. Here are 2 you might want to look at."</td><td>Guided Reveal: one number, one insight, zero judgment. Calm, not alarm.</td></tr>
-          <tr><td><strong>Action</strong></td><td>Post-reveal upgrade prompt</td><td>"Find your full history and cancel easily - try Pro"</td><td>Trigger at moment of discovering a forgotten subscription.</td></tr>
+          <tr><td><strong>Attention</strong></td><td>TikTok, Reddit, Instagram Reels, "no bank" SEO content</td><td>"Found out I was paying for 6 subscriptions I forgot about" / "Track subscriptions without giving your bank details"</td><td>UGC-style subscription list reveal. Privacy-first content angle validated by ReSubs. <cite>Source: <a href="https://resubs.app/resources">resubs.app/resources</a></cite></td></tr>
+          <tr><td><strong>Interest</strong></td><td>Landing page</td><td>"See all your subscriptions in one calm view - no stress, no jargon"</td><td>Product preview with real logos. Dual CTA above fold: "Connect bank" + "Start without connecting." Both paths equally visible.</td></tr>
+          <tr><td><strong>Desire</strong></td><td>Onboarding first session</td><td>"Here's your monthly total. Here's what's in it. Here are 2 you might want to look at."</td><td>Both paths converge on same Guided Reveal aha moment. Path A: auto-detect via bank. Path B: AI import or manual entry (benchmark: ReSubs 461 presets for fast setup).</td></tr>
+          <tr><td><strong>Action</strong></td><td>Post-reveal upgrade prompt</td><td>"Find your full history and cancel easily - try Pro"</td><td>Trigger at moment of discovering a forgotten subscription OR at cancel guide paywall. Both paths reach the same upgrade moment.</td></tr>
         </tbody>
       </table>
     </div>
@@ -809,7 +823,7 @@
     <div class="section-header">
       <div class="section-label">Section 2</div>
       <h2>AARRR Funnel</h2>
-      <p style="color:var(--text-secondary)">All targets are hypotheses marked [? hypothesis]. No competitor data was used to set these targets.</p>
+      <p style="color:var(--text-secondary)">v_refresh - all targets are hypotheses. Revenue price range and conversion target revised up based on PocketGuard ($12.99/mo) and YNAB ($14.99/mo) competitor evidence. Dual activation paths added.</p>
     </div>
 
     <div class="funnel">
@@ -819,19 +833,19 @@
           <div class="funnel-label-metric">New signups/week</div>
         </div>
         <div class="funnel-content">
-          <h4>Channels: TikTok/Reddit organic, SEO, word of mouth</h4>
-          <p>Shareable "subscription snapshot" card (total + count) as primary organic mechanic. SEO around "subscription tracker" and "how to cancel X."</p>
+          <h4>Channels: TikTok/Reddit organic, SEO (incl. "no bank subscription tracker"), word of mouth</h4>
+          <p>Dual CTA on landing page: "Connect bank" + "Start without connecting" - both above the fold. SEO around "subscription tracker," "how to cancel X," and "private subscription tracker." Privacy-first content angle validated by ReSubs. <cite>Source: <a href="https://resubs.app/resources">resubs.app/resources</a></cite></p>
           <span class="funnel-target">100 signups/week at 3 months [? hypothesis]</span>
         </div>
       </div>
       <div class="funnel-stage">
         <div class="funnel-label">
           <div class="funnel-label-name">Activation</div>
-          <div class="funnel-label-metric">% who see sub list in session 1</div>
+          <div class="funnel-label-metric">% who see 3+ subs in session 1</div>
         </div>
         <div class="funnel-content">
-          <h4>Trigger: User sees the full subscription list (the "aha moment")</h4>
-          <p>Guided Reveal onboarding. Single job, single screen, maximum one step before showing value. Bank connection is recommended but not required.</p>
+          <h4>Two equal-weight paths: bank-connected and privacy-first</h4>
+          <p>Path A (bank): auto-detect via Plaid/TrueLayer, fastest route to aha moment. Path B (privacy-first): AI import or manual entry using preset library. Benchmark: ReSubs 461 preset subscriptions for fast manual setup. Both paths converge on the same Guided Reveal aha moment. <cite>Source: <a href="https://resubs.app/">resubs.app</a></cite></p>
           <span class="funnel-target">35-40% within 24h [? hypothesis]</span>
         </div>
       </div>
@@ -841,8 +855,8 @@
           <div class="funnel-label-metric">30-day active rate</div>
         </div>
         <div class="funnel-content">
-          <h4>Mechanics: Weekly email digest + price-change alerts</h4>
-          <p>Ship the weekly digest on day 1. Price-change alerts are the highest-ROI push notification because they are genuinely useful, not promotional.</p>
+          <h4>Mechanics: Weekly email digest + price-change alerts + home screen widget + cancel guides</h4>
+          <p>Ship the weekly digest on day 1. Build home-screen widget (PWA) early - validated by Bobby and ReSubs as ambient retention mechanic. Launch with 10 cancel guides for top services (Netflix, Spotify, Adobe, etc.) - ReSubs validates 30+ guides. <cite>Sources: <a href="https://bobbyapp.co/">bobbyapp.co</a>, <a href="https://resubs.app/">resubs.app</a></cite></p>
           <span class="funnel-target">30% free / 60% paid [? hypothesis]</span>
         </div>
       </div>
@@ -852,9 +866,9 @@
           <div class="funnel-label-metric">Free-to-paid, 90 days</div>
         </div>
         <div class="funnel-content">
-          <h4>Trigger: Finding a forgotten subscription OR hitting free tier limit</h4>
-          <p>Freemium, Tendd Pro ~$4-6/mo. The upgrade prompt lives at the emotional peak of the "forgotten subscription discovery" moment, not on a generic paywall.</p>
-          <span class="funnel-target">5-8% within 90 days [? hypothesis]</span>
+          <h4>Trigger: Forgotten subscription found OR free tier limit OR cancel guide access</h4>
+          <p>Freemium, Tendd Pro ~$6-10/mo [? hypothesis - revised up]. Evidence: PocketGuard $12.99/mo (1M+ users), YNAB $14.99/mo. Price hypothesis updated from original $4-6/mo. Cancel guides (step-by-step for specific services) as a Pro-only feature give the paywall a concrete, immediately useful benefit. <cite>Sources: <a href="https://pocketguard.com/">pocketguard.com</a>, <a href="https://ynab.com/">ynab.com</a></cite></p>
+          <span class="funnel-target">6-10% within 90 days [? hypothesis - revised up from 5-8%]</span>
         </div>
       </div>
       <div class="funnel-stage">
@@ -863,8 +877,8 @@
           <div class="funnel-label-metric">% signups from referral</div>
         </div>
         <div class="funnel-content">
-          <h4>Mechanic: Shareable subscription snapshot (Spotify Wrapped-style)</h4>
-          <p>No formal referral program in MVP. The shareable card is more authentic for this audience. Users who cancel a subscription are most likely to share.</p>
+          <h4>Mechanic: Privacy-safe shareable snapshot (no bank data) + cancel-success moment</h4>
+          <p>Snapshot card shows subscription count + total spend only - no bank name, no account details. Safe for privacy-first users (A2) to share. Trigger the share prompt after a cancel, not at onboarding. Cancel success ("I just cancelled 3 subscriptions and saved $47/month") is the strongest referral hook. No formal referral program in MVP.</p>
           <span class="funnel-target">15-20% at 6 months [? hypothesis]</span>
         </div>
       </div>
@@ -877,11 +891,12 @@
     <div class="section-header">
       <div class="section-label">Section 3</div>
       <h2>Competitive Landscape</h2>
-      <p style="color:var(--text-secondary)">All data from public pre-login pages. Screenshots captured via Playwright. Anything [? behind login] was not accessible.</p>
+      <p style="color:var(--text-secondary)">v_refresh: expanded to 15 competitors across 3 groups (HARD: direct competitors; SOFT: adjacent; ASPIRATIONAL: design benchmarks). All data from public pre-login pages. Screenshots captured via Playwright. Anything [? behind login] was not accessible.</p>
     </div>
 
     <!-- Screenshot gallery -->
     <h3>Competitor Screenshots (Public Pages Only)</h3>
+    <p style="font-size:13px;color:var(--text-muted);margin-bottom:4px">HARD group (direct competitors)</p>
     <div class="gallery">
       <div class="gallery-item">
         <img src="research/screens/rocketmoney-landing.png" alt="Rocket Money landing page">
@@ -896,13 +911,20 @@
         <div class="gallery-item-label">Emma - Plans</div>
       </div>
       <div class="gallery-item">
-        <img src="research/screens/hiatus-landing.png" alt="Hiatus landing page">
-        <div class="gallery-item-label">Hiatus - Landing</div>
+        <img src="research/screens/resubs-landing.png" alt="ReSubs landing page">
+        <div class="gallery-item-label">ReSubs - Landing <span style="color:var(--accent);font-weight:600">NEW</span></div>
       </div>
       <div class="gallery-item">
         <img src="research/screens/bobby-landing.png" alt="Bobby landing page">
         <div class="gallery-item-label">Bobby - Landing</div>
       </div>
+      <div class="gallery-item">
+        <img src="research/screens/hiatus-landing.png" alt="Hiatus landing page">
+        <div class="gallery-item-label">Hiatus - Landing</div>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--text-muted);margin-top:16px;margin-bottom:4px">SOFT group (adjacent competitors)</p>
+    <div class="gallery">
       <div class="gallery-item">
         <img src="research/screens/ynab-landing.png" alt="YNAB landing page">
         <div class="gallery-item-label">YNAB - Landing</div>
@@ -916,13 +938,24 @@
         <div class="gallery-item-label">Monarch - Landing</div>
       </div>
       <div class="gallery-item">
-        <img src="research/screens/monarch-pricing.png" alt="Monarch pricing page">
-        <div class="gallery-item-label">Monarch - Pricing</div>
-      </div>
-      <div class="gallery-item">
         <img src="research/screens/copilot-landing.png" alt="Copilot Money landing page">
         <div class="gallery-item-label">Copilot - Landing</div>
       </div>
+      <div class="gallery-item">
+        <img src="research/screens/pocketguard-landing.png" alt="PocketGuard landing page">
+        <div class="gallery-item-label">PocketGuard - Landing <span style="color:var(--accent);font-weight:600">NEW</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="research/screens/pocketguard-pricing.png" alt="PocketGuard pricing page">
+        <div class="gallery-item-label">PocketGuard - Pricing <span style="color:var(--accent);font-weight:600">NEW</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="research/screens/simplifi-landing.png" alt="Simplifi landing page">
+        <div class="gallery-item-label">Simplifi - Landing <span style="color:var(--accent);font-weight:600">NEW</span></div>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--text-muted);margin-top:16px;margin-bottom:4px">ASPIRATIONAL group (design benchmarks)</p>
+    <div class="gallery">
       <div class="gallery-item">
         <img src="research/screens/revolut-landing.png" alt="Revolut landing page">
         <div class="gallery-item-label">Revolut - Landing</div>
@@ -935,10 +968,18 @@
         <img src="research/screens/applecard-landing.png" alt="Apple Card landing page">
         <div class="gallery-item-label">Apple Card - Landing</div>
       </div>
+      <div class="gallery-item">
+        <img src="research/screens/n26-landing.png" alt="N26 landing page">
+        <div class="gallery-item-label">N26 - Landing <span style="color:var(--accent);font-weight:600">NEW</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="research/screens/nubank-landing.png" alt="Nubank landing page">
+        <div class="gallery-item-label">Nubank - Landing <span style="color:var(--accent);font-weight:600">NEW</span></div>
+      </div>
     </div>
 
     <!-- Comparison table -->
-    <h3 style="margin-top:32px">5 Products x 5 Axes</h3>
+    <h3 style="margin-top:32px">HARD Competitors: 5 x 5 Comparison</h3>
     <div class="table-wrap">
       <table>
         <thead>
@@ -968,6 +1009,22 @@
             <td>FCA regulated, Forbes/FT logos, 2M+ users</td>
             <td>Free + £4.99-14.99/mo (3 tiers)</td>
           </tr>
+          <tr style="background:var(--accent-light)">
+            <td><strong>ReSubs</strong> <span class="competitor-type type-hard">Hard</span> <span style="font-size:10px;color:var(--accent);font-weight:600">NEW</span></td>
+            <td>Privacy-conscious, 18K+ users</td>
+            <td>Subscription tracker only, no bank connection</td>
+            <td>461 preset subscriptions, cancel guides (30+), widget</td>
+            <td>4.5 Google Play (718 reviews), no bank required</td>
+            <td>$0.99-4.49/mo or lifetime plan</td>
+          </tr>
+          <tr>
+            <td><strong>Bobby</strong> <span class="competitor-type type-hard">Hard</span></td>
+            <td>iOS privacy-conscious users</td>
+            <td>Manual subscription tracker only</td>
+            <td>Manual entry, reminders, calendar view, widget</td>
+            <td>4.7 App Store (8K reviews), no bank access</td>
+            <td>Free + one-time IAP</td>
+          </tr>
           <tr>
             <td><strong>Hiatus</strong> <span class="competitor-type type-hard">Hard</span></td>
             <td>US expense-reducers</td>
@@ -976,26 +1033,24 @@
             <td>2,000+ 5-star reviews, phone support</td>
             <td>Free + $9.99/mo or $35.99/yr</td>
           </tr>
-          <tr>
-            <td><strong>Bobby</strong> <span class="competitor-type type-hard">Hard</span></td>
-            <td>iOS privacy-conscious users</td>
-            <td>Manual subscription tracker only</td>
-            <td>Manual entry, reminders, calendar view</td>
-            <td>4.7 App Store (8K reviews), no bank access</td>
-            <td>Free + one-time IAP</td>
-          </tr>
-          <tr>
-            <td><strong>YNAB</strong> <span class="competitor-type type-soft">Soft</span></td>
-            <td>Committed budgeters</td>
-            <td>Zero-based budgeting system</td>
-            <td>Rules-based allocation, goal tracking, workshops</td>
-            <td>$6K avg yr 1 savings, 4.8 App Store, strong community</td>
-            <td>No free tier. $14.99/mo or $109/yr</td>
-          </tr>
         </tbody>
       </table>
     </div>
-    <p style="font-size:12.5px;color:var(--text-muted);margin-top:8px">Sources: <cite><a href="https://www.rocketmoney.com/">rocketmoney.com</a>, <a href="https://emma-app.com/">emma-app.com</a>, <a href="https://hiatusapp.com/">hiatusapp.com</a>, <a href="https://bobbyapp.co/">bobbyapp.co</a>, <a href="https://www.ynab.com/">ynab.com</a></cite></p>
+    <p style="font-size:12.5px;color:var(--text-muted);margin-top:8px">Sources: <cite><a href="https://www.rocketmoney.com/">rocketmoney.com</a>, <a href="https://emma-app.com/">emma-app.com</a>, <a href="https://resubs.app/">resubs.app</a>, <a href="https://bobbyapp.co/">bobbyapp.co</a>, <a href="https://hiatusapp.com/">hiatusapp.com</a></cite></p>
+
+    <h3 style="margin-top:24px">SOFT Competitors (pricing reference)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Product</th><th>Price</th><th>Users</th><th>Key finding for Tendd</th></tr></thead>
+        <tbody>
+          <tr><td><strong>YNAB</strong> <span class="competitor-type type-soft">Soft</span></td><td>$14.99/mo or $109/yr</td><td>500K+ (est.)</td><td>No free tier; market pays $15/mo for financial tools - validates higher pricing hypothesis.</td></tr>
+          <tr><td><strong>Monarch Money</strong> <span class="competitor-type type-soft">Soft</span></td><td>$14.99/mo or $99/yr</td><td>[?]</td><td>No free tier; explicitly states "we do not sell your data" - data transparency as front-page trust signal.</td></tr>
+          <tr style="background:var(--accent-light)"><td><strong>PocketGuard</strong> <span class="competitor-type type-soft">Soft</span> <span style="font-size:10px;color:var(--accent);font-weight:600">NEW</span></td><td>$12.99/mo or $74.99/yr</td><td>1M+ users</td><td>$12.99/mo at 1M+ users validates price point well above original $4-6/mo hypothesis. Bill due alerts 3 days ahead is a validated retention mechanic.</td></tr>
+          <tr style="background:var(--accent-light)"><td><strong>Simplifi by Quicken</strong> <span class="competitor-type type-soft">Soft</span> <span style="font-size:10px;color:var(--accent);font-weight:600">NEW</span></td><td>$3.99/mo (annual only)</td><td>[?]</td><td>Lowest price point in SOFT group. Quicken brand (legacy) dilutes the "calm" positioning.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12.5px;color:var(--text-muted);margin-top:8px">Sources: <cite><a href="https://www.ynab.com/">ynab.com</a>, <a href="https://www.monarchmoney.com/">monarchmoney.com</a>, <a href="https://pocketguard.com/">pocketguard.com</a>, <a href="https://simplifimoney.com/">simplifimoney.com</a></cite></p>
 
     <!-- 3 Patterns + 3 Differences -->
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px">
@@ -1004,14 +1059,14 @@
         <div class="card" style="margin-top:10px">
           <p><strong>P1: Bank connection as primary activation path.</strong> All auto-detection competitors use bank linking as step 1 or 2. Fastest route to value, but biggest trust barrier for the anxious user.</p>
           <p><strong>P2: Feature accumulation crowds out the core.</strong> Every subscription tracker that gained scale expanded into full personal finance. The original calm view is buried under feature depth.</p>
-          <p><strong>P3: Freemium with aggressive upsell.</strong> Emma is specifically noted: "constant prompts disrupt an otherwise smooth experience." <cite>Source: <a href="https://orbitmoney.io/compare/emma-app-review">orbitmoney.io</a></cite></p>
+          <p><strong>P3 (new): Privacy vs. convenience binary - no middle path offered.</strong> Competitors force a choice: full bank access (Rocket Money/Emma/Hiatus) or fully manual (Bobby/ReSubs). No competitor offers a thoughtful middle path such as AI screenshot import or email parsing. This is a gap.</p>
         </div>
       </div>
       <div>
         <h3>3 Key Differences</h3>
         <div class="card" style="margin-top:10px">
-          <p><strong>D1: Auto-detection vs. manual entry.</strong> Fundamentally different trust models. Neither fully solves the anxious user's bank-connection barrier.</p>
-          <p><strong>D2: Focused vs. all-in-one scope.</strong> Bobby and YNAB have stronger brand identity and higher user satisfaction in their niche than the all-in-one products.</p>
+          <p><strong>D1 (updated): Revenue model shapes product incentives.</strong> Rocket Money earns from bill negotiation percentages. Emma from tiered subscriptions. ReSubs from lifetime purchases. These different models explain different product priorities - Rocket Money needs billable negotiations, ReSubs has no churn incentive to keep users subscribed.</p>
+          <p><strong>D2: Focused vs. all-in-one scope.</strong> Bobby and ReSubs have strong niche identities and high user satisfaction. The all-in-one products have higher churn risk and lower per-feature satisfaction.</p>
           <p><strong>D3: Data sharing transparency.</strong> Monarch Money explicitly states "we do not sell your data" - no direct competitor makes data use a front-page trust signal. <cite>Source: <a href="https://www.thepennyhoarder.com/budgeting/monarch-money-review/">thepennyhoarder.com</a></cite></p>
         </div>
       </div>
@@ -1028,6 +1083,7 @@
           <tr class="gap-row"><td>Cancel moment is never designed as a positive emotional experience</td><td>Phase 3 gap #4</td><td>Cancel discovery is a "win" moment - celebrated, shared, and used as upgrade trigger</td></tr>
           <tr class="gap-row"><td>Plain language is not a market differentiator</td><td>Phase 4 Monzo benchmark</td><td>Active voice + real merchant names in every string</td></tr>
           <tr class="gap-row"><td>EU-native calm subscription tracker does not exist at the simple end</td><td>Phase 3 - Emma is EU but complex, Bobby is simple but iOS-only</td><td>Cross-platform web-first, EU open banking support from launch</td></tr>
+          <tr class="gap-row" style="background:var(--accent-light)"><td><strong>No middle path between full bank connect and fully manual</strong> (new - v_refresh)</td><td>competitive-analysis.md P3 - privacy vs. convenience binary forces a choice with no middle option</td><td>AI screenshot import / email parsing as path B; equal UX weight to bank connect</td></tr>
         </tbody>
       </table>
     </div>
@@ -1257,7 +1313,7 @@
     </div>
 
     <!-- Hypotheses -->
-    <h3>6 Hypotheses</h3>
+    <h3>7 Hypotheses</h3>
     <div class="hypothesis-grid">
 
       <div class="hypothesis-card">
@@ -1308,6 +1364,14 @@
         </div>
       </div>
 
+      <div class="hypothesis-card" style="border-color:var(--accent-mid);background:var(--accent-light)">
+        <div class="if-then">
+          <div class="if-line"><span class="if-tag">IF</span><span>we offer two activation paths (bank-connected and privacy-first) with equal visual weight at onboarding start,</span></div>
+          <div class="then-line"><span class="then-tag">THEN</span><span>total activation will increase by 15-25% compared to bank-only onboarding,</span></div>
+          <div class="because-line"><span class="because-tag">BECAUSE</span><span>the privacy-first segment is real and reachable - ReSubs built a 18K+ user base with zero bank connection required. Users who would abandon at bank connection can still reach the aha moment via path B. <cite>Evidence: <a href="https://resubs.app/">resubs.app</a> - NEW v_refresh finding</cite></span></div>
+        </div>
+      </div>
+
     </div>
 
     <!-- Open questions -->
@@ -1337,11 +1401,11 @@
       </div>
     </div>
 
-    <div class="question-card">
-      <h3>Is $4.99/mo or $6.99/mo the right price for Tendd Pro?</h3>
+    <div class="question-card" style="border-color:var(--accent-mid)">
+      <h3>Is $6.99/mo, $7.99/mo, or $9.99/mo the right price for Tendd Pro?</h3>
       <div class="question-meta">
-        <div class="question-meta-item"><div class="question-meta-label">Why It Matters</div>Pricing affects conversion rate, LTV, and positioning. Monarch Money at $14.99 and YNAB at $14.99 suggest market can bear more.</div>
-        <div class="question-meta-item"><div class="question-meta-label">How to Answer</div>Pricing page A/B test after launch; Van Westendorp price sensitivity survey in user research.</div>
+        <div class="question-meta-item"><div class="question-meta-label">Why It Matters</div>Price hypothesis revised UP from original $4-6/mo. PocketGuard charges $12.99/mo (1M+ users), YNAB charges $14.99/mo. Original $4.99 hypothesis may leave significant revenue on the table. <cite>Sources: <a href="https://pocketguard.com/">pocketguard.com</a>, <a href="https://ynab.com/">ynab.com</a></cite></div>
+        <div class="question-meta-item"><div class="question-meta-label">How to Answer</div>Pricing page A/B test after launch. Van Westendorp price sensitivity survey in user research. Current best hypothesis: $7.99/mo or $69/yr.</div>
       </div>
     </div>
 
@@ -1365,7 +1429,7 @@
 
   <!-- Footer -->
   <div class="footer">
-    <p>Tendd Product Research - June 2026 - All facts cited. All targets marked [? hypothesis].</p>
+    <p>Tendd Product Research - June 2026 - v_refresh - All facts cited. All targets marked [? hypothesis].</p>
     <p style="margin-top:4px">Research files: <a href="research/competitive-analysis.md">Competitive Analysis</a> - <a href="research/benchmark-trust.md">Benchmark</a> - <a href="research/ux-patterns.md">UX Patterns</a> - <a href="research/master-research.md">Master Synthesis</a></p>
   </div>
 
