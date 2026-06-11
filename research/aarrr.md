@@ -8,6 +8,7 @@
 |---------|------|--------|
 | v1 | Phase 2 | Initial model based on brief reasoning and v1 product model |
 | v_refresh | June 2026 re-run | Updated after deepened competitor research. Key changes: dual activation paths (bank + privacy-first); revenue price range raised; cancel guides added to retention + revenue; ReSubs/PocketGuard evidence folded in; lifetime plan option added to revenue mechanics. |
+| v_refresh.1 | June 11, 2026 | AIDA retired: AARRR is now the single funnel for Tendd (see research/strategy.md). The AIDA messaging hooks were folded in here: Attention hooks live in Acquisition, the Interest/Desire landing and reveal messages live in Activation, the Action upgrade trigger lives in Revenue. Segment B's "monthly commitment" framing added to Activation. Activation explicitly flagged as the stage where the riskiest assumption (strategy.md section 5) gets tested. One primary metric and one MVP decision per stage confirmed. |
 
 ---
 
@@ -21,7 +22,7 @@ All targets are hypotheses. Mark as [? hypothesis]. Unknown = [?].
 
 **Channels and mechanics:**
 - Organic search (SEO): content around "subscription tracker," "how to cancel X subscription," "am I overpaying for subscriptions," "best subscription tracker app 2026"
-- Social content (TikTok, Instagram Reels, Reddit): UGC-style content showing the discovery moment
+- Social content (TikTok, Instagram Reels, Reddit): UGC-style content showing the discovery moment. Core hook (folded in from retired AIDA): "Found out I was paying for 6 subscriptions I forgot about" - the same pattern as Rocket Money's top testimonials ("saved $200 in the first week"). Source: [rocketmoney.com](https://www.rocketmoney.com/)
 - Reddit communities: r/personalfinance, r/frugal, r/UKPersonalFinance
 - Word of mouth: friend showing a friend the subscription list reveal
 - Privacy-first content angle (NEW): "track subscriptions without giving up your bank data" - validated by ReSubs' content strategy and Google Play growth. Source: [resubs.app/resources](https://resubs.app/resources)
@@ -52,7 +53,9 @@ All targets are hypotheses. Mark as [? hypothesis]. Unknown = [?].
 - Onboarding path A (bank-connected): connect Plaid/TrueLayer, auto-import subscriptions, see list immediately
 - Onboarding path B (privacy-first): AI import from screenshot/Gmail OR manual entry - leads to same aha moment via a longer but trust-first route. NEW: ReSubs' 461 preset subscriptions for quick setup is the benchmark for how fast manual can be. Source: [resubs.app](https://resubs.app/)
 - "Aha moment" trigger: the first time the user sees a populated subscription list with a monthly total
+- Reveal messaging (folded in from retired AIDA): Segment A gets the calm guided reveal - "Here's your monthly total. Here's what's in it. Here are 2 you might want to look at." Segment B gets the commitment framing borrowed from PocketGuard's validated "In My Pocket" approach - "You're committing $247/month before anything else." Source: [pocketguard.com](https://pocketguard.com/)
 - Progressive disclosure: both paths defer all configuration, profile setup, and feature explanations until after the aha moment
+- Riskiest assumption lives here: whether financially avoidant users complete the reveal and feel relief rather than stress is the single assumption the idea depends on (see research/strategy.md section 5). Activation metrics are its first real-world measurement.
 
 **Key hypotheses:**
 1. The subscription list + total is the activation event regardless of which path delivered it. The path changes friction level, not the emotional payoff [? hypothesis]
