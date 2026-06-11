@@ -703,13 +703,13 @@
   <span class="nav-brand">Tendd Research</span>
   <div class="nav-links">
     <a href="#intro">Overview</a>
+    <a href="#canvas">Canvas</a>
     <a href="#strategy">Strategy</a>
     <a href="#aarrr">AARRR</a>
     <a href="#competitors">Competitors</a>
     <a href="#benchmark">Benchmark</a>
     <a href="#patterns">UX Patterns</a>
     <a href="#conclusions">Conclusions</a>
-    <a href="#canvas">Canvas</a>
   </div>
 </nav>
 
@@ -736,6 +736,61 @@
         <li><strong>The privacy-first user is a real, reachable segment - not an edge case.</strong> ReSubs has 18K+ users with zero bank connection required, validating a second activation path as a market expansion move, not a fallback. <cite>Source: <a href="https://resubs.app/">resubs.app</a></cite></li>
       </ol>
     </div>
+  </section>
+
+  <!-- Executive summary: Lean UX Canvas v2 -->
+  <div class="divider"></div>
+  <section class="section" id="canvas">
+    <div class="section-header">
+      <div class="section-label">Executive Summary</div>
+      <h2>Lean UX Canvas</h2>
+      <p style="color:var(--text-secondary)">One visual summary of the refreshed research. Framework: Jeff Gothelf, Lean UX Canvas v2.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px">
+
+      <div style="border:1px solid var(--border, #e3e0da);border-radius:12px;padding:18px 20px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px">1. Business Problem</div>
+        <p style="font-size:13.5px;color:var(--text-secondary)">People aged 22-42 with low-to-medium financial confidence pay for an average of 12 subscriptions (over $273/month) and feel a background anxiety about money leaking out. Existing finance apps serve motivated optimizers and bury subscription clarity under feature depth, so anxious users avoid them entirely. <cite>Source: <a href="https://resubs.app/resources/best-subscription-tracker-apps">resubs.app</a>, competitive analysis P2.</cite></p>
+      </div>
+
+      <div style="border:1px solid var(--border, #e3e0da);border-radius:12px;padding:18px 20px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px">2. Business Outcomes</div>
+        <p style="font-size:13.5px;color:var(--text-secondary)">All [? hypothesis]: 35-40% of new users see their populated subscription list in session 1. 30-day active rate 30% free / 60% paid. Free-to-paid conversion 6-10% within 90 days. Average $15-30/month saved per active user.</p>
+      </div>
+
+      <div style="border:1px solid var(--border, #e3e0da);border-radius:12px;padding:18px 20px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px">3. Users</div>
+        <p style="font-size:13.5px;color:var(--text-secondary)">Primary: the Anxious Millennial, 26-36, in two equal paths - A1 will connect a bank if trust is earned, A2 refuses bank access and needs a private import path (validated by ReSubs' 18K+ users). Secondary: the Frugal 30-Something, 30-42, explicit cancel-and-save intent. Later: the Shared-Finances Couple.</p>
+      </div>
+
+      <div style="border:1px solid var(--border, #e3e0da);border-radius:12px;padding:18px 20px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px">4. User Outcomes &amp; Benefits</div>
+        <p style="font-size:13.5px;color:var(--text-secondary)">See every recurring charge in one calm view (J1) and feel in control without becoming a finance person (J2). Find and cancel unused subscriptions (J3). Never be caught off guard by a price change or failed payment (J4). Stay private while doing it (J6). The feeling that matters: "I know what's going out, and I'm okay."</p>
+      </div>
+
+      <div style="border:1px solid var(--border, #e3e0da);border-radius:12px;padding:18px 20px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px">5. Solutions</div>
+        <p style="font-size:13.5px;color:var(--text-secondary)">Dual-path onboarding with equal weight: bank auto-detect or private import/manual entry with a preset library. Guided Reveal of the subscription list as a calm discovery moment. Plain-language alerts. Cancel guides and direct links (Pro). Weekly digest, PWA home-screen widget, privacy-safe shareable snapshot.</p>
+      </div>
+
+      <div style="border:1px solid var(--border, #e3e0da);border-radius:12px;padding:18px 20px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px">6. Hypotheses</div>
+        <p style="font-size:13.5px;color:var(--text-secondary)">Eight, in If / Then / Because format (Section 6). Highest stakes: H0 - calm visibility converts avoidance into control. Key supporting bets: showing value before asking for bank access raises connection rates (H1); the dual-path onboarding lifts total activation 15-25%; the upgrade trigger belongs at the forgotten-subscription moment (H4).</p>
+      </div>
+
+      <div style="border:1px solid var(--accent-mid);background:var(--accent-light);border-radius:12px;padding:18px 20px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:8px">7. What to Learn First (Riskiest Assumption)</div>
+        <p style="font-size:13.5px;color:var(--text-secondary)">Will financially avoidant people actually look? The whole idea depends on the calm reveal producing relief instead of triggering the same avoidance that keeps them out of every finance app. No competitor evidence exists either way [?] - their users are all self-selected money-tool seekers.</p>
+      </div>
+
+      <div style="border:1px solid var(--accent-mid);background:var(--accent-light);border-radius:12px;padding:18px 20px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:8px">8. Smallest Test</div>
+        <p style="font-size:13.5px;color:var(--text-secondary)">A clickable "calm reveal" prototype with sample data, shown to 5-8 people screened for financial-avoidance behavior. Measure: do they complete the reveal, do they report relief or stress after seeing the total, and do they ask to try it on their own subscriptions. Pass: a majority report relief and want the real thing. No build required.</p>
+      </div>
+
+    </div>
+    <p style="margin-top:14px;font-size:12.5px;color:var(--text-muted)">Framework attribution: Lean UX Canvas v2 by Jeff Gothelf. Populated June 11, 2026 from research/strategy.md, research/aarrr.md, and research/competitive-analysis.md.</p>
   </section>
 
   <!-- Section 1: Strategy (formerly Product Model) -->
@@ -811,7 +866,7 @@
     <h3 style="margin-top:32px">Riskiest Assumption</h3>
     <div style="border:1px solid var(--accent-mid);background:var(--accent-light);border-radius:12px;padding:20px 24px;max-width:820px">
       <p style="font-size:15px;font-weight:600">People who feel money anxiety and avoid finance apps will actually look - that seeing their full recurring spend in a calm frame reduces their anxiety and feels like relief, rather than triggering the same avoidance that keeps them out of every other finance app.</p>
-      <p style="margin-top:10px;font-size:13.5px;color:var(--text-secondary)">This is a risk to value, not feasibility. Competitor growth (Rocket Money 10M+, ReSubs 18K+) only proves that already-motivated users adopt trackers - it says nothing about avoiders. If false: no activation, no retention, no business. No competitor evidence exists either way [?], which is why it is first in the testing queue. Smallest test: see the Lean UX Canvas below. <cite>Full trace: <a href="research/strategy.md">research/strategy.md</a> section 5.</cite></p>
+      <p style="margin-top:10px;font-size:13.5px;color:var(--text-secondary)">This is a risk to value, not feasibility. Competitor growth (Rocket Money 10M+, ReSubs 18K+) only proves that already-motivated users adopt trackers - it says nothing about avoiders. If false: no activation, no retention, no business. No competitor evidence exists either way [?], which is why it is first in the testing queue. Smallest test: see the Lean UX Canvas above (Executive Summary). <cite>Full trace: <a href="research/strategy.md">research/strategy.md</a> section 5.</cite></p>
     </div>
   </section>
 
@@ -1432,61 +1487,6 @@
       </div>
     </div>
 
-  </section>
-
-  <!-- Section 7: Lean UX Canvas v2 -->
-  <div class="divider"></div>
-  <section class="section" id="canvas">
-    <div class="section-header">
-      <div class="section-label">Section 7</div>
-      <h2>Lean UX Canvas</h2>
-      <p style="color:var(--text-secondary)">One visual summary of the refreshed research. Framework: Jeff Gothelf, Lean UX Canvas v2.</p>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px">
-
-      <div style="border:1px solid var(--border, #e3e0da);border-radius:12px;padding:18px 20px">
-        <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px">1. Business Problem</div>
-        <p style="font-size:13.5px;color:var(--text-secondary)">People aged 22-42 with low-to-medium financial confidence pay for an average of 12 subscriptions (over $273/month) and feel a background anxiety about money leaking out. Existing finance apps serve motivated optimizers and bury subscription clarity under feature depth, so anxious users avoid them entirely. <cite>Source: <a href="https://resubs.app/resources/best-subscription-tracker-apps">resubs.app</a>, competitive analysis P2.</cite></p>
-      </div>
-
-      <div style="border:1px solid var(--border, #e3e0da);border-radius:12px;padding:18px 20px">
-        <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px">2. Business Outcomes</div>
-        <p style="font-size:13.5px;color:var(--text-secondary)">All [? hypothesis]: 35-40% of new users see their populated subscription list in session 1. 30-day active rate 30% free / 60% paid. Free-to-paid conversion 6-10% within 90 days. Average $15-30/month saved per active user.</p>
-      </div>
-
-      <div style="border:1px solid var(--border, #e3e0da);border-radius:12px;padding:18px 20px">
-        <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px">3. Users</div>
-        <p style="font-size:13.5px;color:var(--text-secondary)">Primary: the Anxious Millennial, 26-36, in two equal paths - A1 will connect a bank if trust is earned, A2 refuses bank access and needs a private import path (validated by ReSubs' 18K+ users). Secondary: the Frugal 30-Something, 30-42, explicit cancel-and-save intent. Later: the Shared-Finances Couple.</p>
-      </div>
-
-      <div style="border:1px solid var(--border, #e3e0da);border-radius:12px;padding:18px 20px">
-        <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px">4. User Outcomes &amp; Benefits</div>
-        <p style="font-size:13.5px;color:var(--text-secondary)">See every recurring charge in one calm view (J1) and feel in control without becoming a finance person (J2). Find and cancel unused subscriptions (J3). Never be caught off guard by a price change or failed payment (J4). Stay private while doing it (J6). The feeling that matters: "I know what's going out, and I'm okay."</p>
-      </div>
-
-      <div style="border:1px solid var(--border, #e3e0da);border-radius:12px;padding:18px 20px">
-        <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px">5. Solutions</div>
-        <p style="font-size:13.5px;color:var(--text-secondary)">Dual-path onboarding with equal weight: bank auto-detect or private import/manual entry with a preset library. Guided Reveal of the subscription list as a calm discovery moment. Plain-language alerts. Cancel guides and direct links (Pro). Weekly digest, PWA home-screen widget, privacy-safe shareable snapshot.</p>
-      </div>
-
-      <div style="border:1px solid var(--border, #e3e0da);border-radius:12px;padding:18px 20px">
-        <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px">6. Hypotheses</div>
-        <p style="font-size:13.5px;color:var(--text-secondary)">Eight, in If / Then / Because format (Section 6). Highest stakes: H0 - calm visibility converts avoidance into control. Key supporting bets: showing value before asking for bank access raises connection rates (H1); the dual-path onboarding lifts total activation 15-25%; the upgrade trigger belongs at the forgotten-subscription moment (H4).</p>
-      </div>
-
-      <div style="border:1px solid var(--accent-mid);background:var(--accent-light);border-radius:12px;padding:18px 20px">
-        <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:8px">7. What to Learn First (Riskiest Assumption)</div>
-        <p style="font-size:13.5px;color:var(--text-secondary)">Will financially avoidant people actually look? The whole idea depends on the calm reveal producing relief instead of triggering the same avoidance that keeps them out of every finance app. No competitor evidence exists either way [?] - their users are all self-selected money-tool seekers.</p>
-      </div>
-
-      <div style="border:1px solid var(--accent-mid);background:var(--accent-light);border-radius:12px;padding:18px 20px">
-        <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:8px">8. Smallest Test</div>
-        <p style="font-size:13.5px;color:var(--text-secondary)">A clickable "calm reveal" prototype with sample data, shown to 5-8 people screened for financial-avoidance behavior. Measure: do they complete the reveal, do they report relief or stress after seeing the total, and do they ask to try it on their own subscriptions. Pass: a majority report relief and want the real thing. No build required.</p>
-      </div>
-
-    </div>
-    <p style="margin-top:14px;font-size:12.5px;color:var(--text-muted)">Framework attribution: Lean UX Canvas v2 by Jeff Gothelf. Populated June 11, 2026 from research/strategy.md, research/aarrr.md, and research/competitive-analysis.md.</p>
   </section>
 
   <!-- Footer -->
