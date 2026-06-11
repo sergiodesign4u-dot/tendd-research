@@ -11,6 +11,7 @@
 |---------|------|--------|
 | v1 | June 2026 (Phase 3) | Initial analysis: 5 hard, 3 soft, 3 aspirational competitors |
 | v_refresh | June 2026 (re-run) | Deepened all groups to max 5 each. Added ReSubs (hard), PocketGuard + Simplifi (soft), N26 + Nubank (aspirational). New screenshots for all new entrants. Updated facts on existing competitors. |
+| v_refresh.1 | June 11, 2026 (verification pass) | Re-verified all comparison-matrix facts against live pages. Two corrections: Emma exact annual prices added (Plus £41.99/yr, Pro £83.99/yr, Ultimate £124.99/yr, all with 7-day free trial); PocketGuard lifetime plan is now offered only to select customers with no public price (previously listed as $149.99). Rocket Money (10M+ members, $2.5B savings claim), ReSubs (18K+ users, 461 presets), YNAB ($14.99/mo, $109/yr, 34-day trial) all confirmed unchanged. Added matrix selection trace. |
 
 ---
 
@@ -130,7 +131,7 @@ Sources: [revolut.com](https://www.revolut.com/), [monzo.com](https://monzo.com/
 
 **Trust signals:** FCA regulated (FRN 1042167), 256-bit TLS, biometric login, Forbes/Financial Times/Guardian/Channel 4 logos. The FCA regulation mark is the single strongest trust signal for UK users.
 
-**Monetization:** Free + three paid tiers: Plus (£4.99/mo), Pro (£9.99/mo), Ultimate (£14.99/mo). Annual billing gives 30% off. Source: [emma-app.com/plans/compare-emma-plans](https://emma-app.com/plans/compare-emma-plans)
+**Monetization:** Free (Basic: 2 bank logins) + three paid tiers: Plus (£4.99/mo or £41.99/yr), Pro (£9.99/mo or £83.99/yr), Ultimate (£14.99/mo or £124.99/yr). Annual billing gives 30% off. All paid tiers carry a 7-day free trial. Verified June 11, 2026. Source: [emma-app.com/plans/compare-emma-plans](https://emma-app.com/plans/compare-emma-plans)
 
 **Key gap for our context:** Aggressive upsells and constant upgrade prompts disrupt an otherwise strong experience. Source: [orbitmoney.io/compare/emma-app-review](https://orbitmoney.io/compare/emma-app-review). Despite strong EU credentials, Emma is now a full money management platform - the subscription tracking core is buried under complexity.
 
@@ -199,7 +200,12 @@ Sources: [revolut.com](https://www.revolut.com/), [monzo.com](https://monzo.com/
 
 ## 4. Comparison Matrix: Top 5 Most Relevant Competitors x 5 Axes
 
-Selection rationale: Rocket Money (dominant US hard), Emma (dominant EU hard), ReSubs (strongest privacy-first hard), YNAB (strongest soft - methodology trust), PocketGuard (soft - largest user base outside YNAB/Monarch with subscription angle).
+Selection rationale (diverge then converge): all 15 competitors were candidates for the matrix. Chosen: Rocket Money (dominant US hard), Emma (dominant EU hard), ReSubs (strongest privacy-first hard, closest to our positioning), YNAB (strongest soft - methodology trust), PocketGuard (soft - largest user base with a subscription angle outside YNAB/Monarch).
+
+Discarded and why:
+- Bobby and Hiatus (hard): Bobby's development has visibly stalled and it is iOS-only; Hiatus overlaps almost fully with Rocket Money's model at smaller scale. Neither adds a distinct axis the chosen five do not cover.
+- Monarch, Copilot, Simplifi (soft): all three are premium full-finance suites for committed users; YNAB already represents the methodology-led premium pole, and their audiences overlap least with our anxious non-financial user.
+- All five aspirational products: they are benchmarks for trust and clarity, not purchase alternatives, so they inform the trust benchmark (research/benchmark-trust.md) rather than this head-to-head matrix.
 
 | Axis | Rocket Money | Emma | ReSubs | YNAB | PocketGuard |
 |------|-------------|------|--------|------|-------------|
@@ -207,7 +213,7 @@ Selection rationale: Rocket Money (dominant US hard), Emma (dominant EU hard), R
 | **Product foundation** | All-in-one: subscriptions, budgeting, credit score, net worth, bill negotiation | Full money app: subscriptions, budgeting, investing, payments, rent reporting | Dedicated subscription tracker: manual + AI import, cancel guides, lifecycle tracking | Zero-based budgeting system with methodology and workshops | Spending awareness ("safe to spend"), budgeting, subscription detection |
 | **Key mechanism** | Plaid auto-detect + human cancel concierge + performance-based bill negotiation | FCA open banking + subscription detection + collaborative budgets (added 2025) | Manual + Gmail scan + AI screenshot + 30+ cancel guides + lifecycle states | Rules-based allocation + four-rule methodology + goal tracking + educational workshops | "In My Pocket" calculation + AI subscription detection + 3-day advance bill alerts |
 | **Trust signals** | 10M+ members, $2.5B savings claim (unverified disclaimer), FDIC banking, Rocket brand | FCA regulated (FRN 1042167), 2M+ users, Forbes/FT/Guardian logos | "100% privacy-first," data stays on device, 4.5 Google Play (718 reviews) | $6K avg savings yr 1, 4.8 App Store, community forums, published methodology | 1M+ members, 4.7 stars (12K reviews), Forbes/CNN/TechCrunch/NYT logos, est. 2014 |
-| **Monetization** | Free + $7-14/mo (user-chosen) + 35-60% bill savings fee | Free + £4.99-£14.99/mo (3 tiers), annual -30% | Free (limited) + Premium unlimited + lifetime option [? exact price not on public page] | No free tier. $14.99/mo or $109/yr (34-day trial). Students free 1 year. | Free (limited) + Plus $12.99/mo or $74.99/yr + lifetime $149.99 |
+| **Monetization** | Free + $7-14/mo (user-chosen) + 35-60% bill savings fee | Free + £4.99-£14.99/mo (3 tiers), annual -30%, 7-day trial | Free (limited) + Premium unlimited + lifetime option [? exact price not on public page] | No free tier. $14.99/mo or $109/yr (34-day trial). Students free 1 year. | Free (limited) + Plus $12.99/mo or $74.99/yr + lifetime [? select customers only, price not public] |
 
 Sources: [rocketmoney.com](https://www.rocketmoney.com/), [emma-app.com](https://emma-app.com/), [resubs.app](https://resubs.app/), [ynab.com/pricing](https://www.ynab.com/pricing), [pocketguard.com/pricing/](https://pocketguard.com/pricing/)
 
